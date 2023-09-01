@@ -12,19 +12,31 @@ startGame.addEventListener("click", function () {
   gridEl.style.display = "block";
 
   //appeso gli elementi creati
-  genereteElement(gridEl);
+  genereteElement(gridEl, squareNumber);
 });
 
 //funzione per creare elementi
-function genereteElement(element) {
-  for (let i = 0; i < 100; i++) {
+
+const squareNumber = 100;
+function genereteElement(element, number) {
+  for (let i = 0; i < number; i++) {
+    //creato il quadratini e il testo(che parte con un display non, perche si vedra solo al click del quadrato)
     const square = document.createElement("div");
+    const squareText = document.createElement("p");
+    squareText.append(i + 1);
+    squareText.classList.add("dNone");
+    square.append(squareText);
     square.classList.add("square");
     element.append(square);
+    //cambiare il nome delle celle e il colore
+    square.addEventListener("click", function () {
+      changeColorText(square, squareText);
+    });
   }
 }
 
-//cambiare il nome delle celle e il colore
-square.addEventListener("click", function () {});
-
 //funzione per cambiare gli elementi
+function changeColorText(color, text) {
+  color.classList.toggle("bgColor");
+  text.classList.toggle("dNone");
+}
