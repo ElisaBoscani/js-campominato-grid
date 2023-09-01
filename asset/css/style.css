@@ -4,6 +4,7 @@ body {
 p {
   color: white;
 }
+
 .square {
   width: calc(100% / 10);
   aspect-ratio: 1/1;
@@ -13,6 +14,9 @@ p {
   align-items: flex-end;
 }
 .dNone {
+  display: none;
+}
+.dNoneGrid {
   display: none;
 }
 .bgColor {

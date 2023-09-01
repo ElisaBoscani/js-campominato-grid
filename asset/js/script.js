@@ -6,13 +6,26 @@ ed emetto un messaggio in console con il numero della cella cliccata. */
 
 //elementi del DOM
 const startGame = document.querySelector("button");
+
 const gridEl = document.getElementById("grid");
+gridEl.classList.add("dNone");
+let visibile = false;
 //L'utente clicca su un bottone che genererà una griglia di gioco
 startGame.addEventListener("click", function () {
-  gridEl.style.display = "block";
-
+  /*  gridEl.style.display = "block"; */
+  if (!visibile) {
+    genereteElement(gridEl, squareNumber);
+    visibile = true;
+  }
+  if (gridEl.classList.contains("dNone")) {
+    gridEl.classList.remove("dNone");
+    gridEl.classList.add("d-flex");
+  } else {
+    gridEl.classList.add("dNone");
+    gridEl.classList.remove("d-flex");
+  }
   //appeso gli elementi creati
-  genereteElement(gridEl, squareNumber);
+  /*  genereteElement(); */
 });
 
 //funzione per creare elementi
@@ -28,6 +41,7 @@ function genereteElement(element, number) {
     square.append(squareText);
     square.classList.add("square");
     element.append(square);
+
     //cambiare il nome delle celle e il colore
     square.addEventListener("click", function () {
       changeColorText(square, squareText);
