@@ -9,13 +9,13 @@ const startGame = document.querySelector("button");
 
 const gridEl = document.getElementById("grid");
 gridEl.classList.add("dNone");
-let visibile = false;
+let clearGrid = false;
 //L'utente clicca su un bottone che genererà una griglia di gioco
 startGame.addEventListener("click", function () {
   /*  gridEl.style.display = "block"; */
-  if (!visibile) {
+  if (!clearGrid) {
     genereteElement(gridEl, squareNumber);
-    visibile = true;
+    clearGrid = true;
   }
   if (gridEl.classList.contains("dNone")) {
     gridEl.classList.remove("dNone");
@@ -24,8 +24,6 @@ startGame.addEventListener("click", function () {
     gridEl.classList.add("dNone");
     gridEl.classList.remove("d-flex");
   }
-  //appeso gli elementi creati
-  /*  genereteElement(); */
 });
 
 //funzione per creare elementi
